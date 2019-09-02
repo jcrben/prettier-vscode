@@ -25,7 +25,8 @@
       "args": [
         "--disable-extensions",
         "--extensionDevelopmentPath=${workspaceFolder}",
-        "--extensionTestsPath=${workspaceFolder}/out/test/suite"
+        "--extensionTestsPath=${workspaceFolder}/out/test/suite",
+        "--add ${workspaceFolder}"
       ],
       "outFiles": ["${workspaceFolder}/out/test/**/*.js"],
       "preLaunchTask": "npm: compile"

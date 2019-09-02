@@ -20,10 +20,14 @@ export function run(
     });
   }
 
-  glob('**/**.test.js', { cwd: testsRoot }, (err, files) => {
+// let testsRoot2 = "/Users/bencreasy/code/prettier-vscode/out/test/"
+
+  glob('**/*.test.js', { cwd: testsRoot }, (err, files) => {
     if (err) {
       return cb(err);
     }
+
+    console.log('files', files)
 
     // Add files to the test suite
     files.forEach(f => mocha.addFile(path.resolve(testsRoot, f)));

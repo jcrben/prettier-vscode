@@ -1,6 +1,7 @@
 import * as assert from 'assert';
 import * as path from 'path';
 import * as prettier from 'prettier';
+// import * as fs from 'fs';
 // tslint:disable-next-line: no-implicit-dependencies
 import * as vscode from 'vscode';
 
@@ -15,6 +16,10 @@ const getWorkspaceFolderUri = (workspaceFolderName: string) => {
   return workspaceFolder!.uri;
 };
 
+// const getBasePath = () => {
+//   return path.join(__dirname)
+// };
+
 /**
  * loads and format a file.
  * @param file path relative to base URI (a workspaceFolder's URI)
@@ -22,7 +27,9 @@ const getWorkspaceFolderUri = (workspaceFolderName: string) => {
  * @returns source code and resulting code
  */
 export async function format(workspaceFolderName: string, file: string) {
-  const base = getWorkspaceFolderUri(workspaceFolderName);
+  // const workspaceFolder = vscode.workspace.workspaceFolders ? 'project' : 
+  // const base = vscode.workspace.workspaceFolder ? getWorkspaceFolderUri(workspaceFolderName) : ;
+  const base =  getWorkspaceFolderUri(workspaceFolderName);
   const absPath = path.join(base.fsPath, file);
   const doc = await vscode.workspace.openTextDocument(absPath);
   const text = doc.getText();
